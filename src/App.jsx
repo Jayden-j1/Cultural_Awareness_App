@@ -1,10 +1,10 @@
-import Heading from "./components/Test";
+import NavBar from "./components/NavigationBar";
 
 
 function App() {
   return (
     <>
-     <Heading />
+     <NavBar />
     </>
   ); 
 }
