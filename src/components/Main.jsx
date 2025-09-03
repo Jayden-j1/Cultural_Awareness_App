@@ -6,7 +6,7 @@ export default function MainContent() {
     return (
         <>
          <main className="flex flex-col justify-center">
-          <Greeting bundjalungGreeting="JINGI WALLA" englishGreeting="WELCOME" />
+          <Greeting  />
           <Language />
          </main>
         </>

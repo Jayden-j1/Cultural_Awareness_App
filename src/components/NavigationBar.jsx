@@ -1,5 +1,3 @@
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faBars } from '@fortawesome/free-solid-svg-icons';
 function Navbar({ isOpen, toggleMenu, navigation }) {
   return (
     <header>
@@ -8,7 +6,7 @@ function Navbar({ isOpen, toggleMenu, navigation }) {
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-xl font-bold text-gray-800">MyLogo</span>
+            <span className="text-xl font-bold text-gray-800">Nynangbul Culutral Awareness</span>
           </div>
 
           {/* Desktop Menu */}

@@ -1,17 +1,75 @@
+// components/Language.tsx
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
+
+/**
+ * Language - A React component that displays a section of text
+ * which animates into view on scroll using Framer Motion.
+ */
 export default function Language() {
-    return (
-        <>
-         <section>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. At, provident. Officiis, nam. Sunt officiis quam minus delectus facere blanditiis tempora nisi odit sapiente, dolor cum natus quisquam recusandae est laboriosam.
-                Tempore quam, cum sunt praesentium illo nisi dignissimos ea deleniti autem iste ut quae eveniet adipisci corporis error laboriosam? Earum cupiditate debitis ab ratione eos adipisci dolorem consequatur aliquid eveniet.
-                Corporis, nisi eligendi! Accusamus nostrum, illo veniam ipsum perspiciatis aliquid eaque ipsam sed minima. Sapiente eum odio, nulla suscipit, quasi sequi dolorem quia accusamus, dolorum architecto repudiandae error voluptatem aliquid.
-                In totam sapiente iure hic expedita quis vitae mollitia architecto nisi dolor molestias magni at quidem aperiam harum esse debitis et minima, magnam ullam explicabo eum, consequatur aut! Magni, minima.
-                Repellat quae consectetur quo voluptates iure error unde necessitatibus eius ea fugit repellendus perspiciatis praesentium doloremque ipsum facere dolor, vero veniam eaque consequatur nobis ad aut, itaque excepturi atque. Explicabo.
-                Recusandae sunt cupiditate, doloremque eos consectetur dolorum sequi impedit ratione, animi ducimus velit minus aliquam rerum. Eveniet reprehenderit et impedit perspiciatis dolorum, maiores exercitationem recusandae dignissimos harum ex. Dignissimos, perferendis!
-                Quaerat optio nisi deleniti maiores obcaecati exercitationem quia consequuntur atque similique asperiores eaque itaque ab officia dolorem ex tenetur, mollitia, non natus id eius excepturi quam expedita. Tempore, officiis commodi!
-            </p>
-         </section>
-        </>
-    );
+  // Use the custom hook to detect scroll position
+  const { ref, inView } = useScrollAnimation(0.3); // 30% of section must be visible to trigger animation
+
+  return (
+    // Section container with full viewport height and centered content
+    <section
+      ref={ref} // Attach the ref so IntersectionObserver can track visibility
+      className="flex flex-col justify-center items-center min-h-screen bg-white"
+    >
+      {/* Heading with scroll animation */}
+      <motion.h2
+        // Initial state before the element enters the viewport
+        initial={{ opacity: 0, y: 50 }}
+        // Animate in or out depending on visibility
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        // Animation duration
+        transition={{ duration: 0.6 }}
+        className="text-5xl sm:text-7xl font-bold mb-10 text-center"
+      >
+        Bundjalung Jugun
+      </motion.h2>
+
+      {/* Paragraph with scroll animation and delayed transition */}
+      <motion.p
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.6, delay: 0.2 }} // Slight delay for a staggered effect
+        className="text-lg sm:text-xl leading-relaxed tracking-normal text-gray-700 max-w-xl whitespace-pre-line mb-40 text-left"
+        style={{ wordSpacing: "0.05em" }}
+      >
+        Ngali na jugun
+        <br />
+        Ngali garima mala jugun
+        <br />
+        Wana janjma mala gunu gala jugun
+        <br />
+        Ngali wana janja mala jugun
+        <br />
+        Ngali na mala jugun
+      </motion.p>
+    </section>
+  );
 }
+
+
+// export default function Language() {
+//     return (
+//         <>
+//          <section className="flex flex-col justify-center items-center">
+//             <h2 
+//             className="text-7xl mb-10">
+//             Bundjalung Jugun</h2>
+//             <p
+//                     className="text-lg sm:text-xl leading-relaxed tracking-normal text-gray-700 max-w-xl whitespace-pre-line mb-40"
+//         style={{ wordSpacing: "0.05em" }}
+//             >
+//                 Ngali na jugun<br/>
+//                 Ngali garima mala jugun<br/>
+//                 Wana janjma mala gunu gala jugun<br/>
+//                 Ngali wana janja mala jugun<br/>
+//                 Ngali na mala jugun               
+//             </p>
+//          </section>
+//         </>
+//     );
+// }
