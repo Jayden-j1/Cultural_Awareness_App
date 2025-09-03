@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import NavBar from './components/NavigationBar';
+import MainContent from './components/Main';
+
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +25,10 @@ function App() {
         navigation={navigation}
       />
       {/* Other app content can go here */}
+
+      <MainContent/>
+
+      
     </>
   );
 }
