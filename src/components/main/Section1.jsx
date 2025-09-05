@@ -1,19 +1,23 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import diversity from "../../assets/images/Diversity.jpg"
+
+
 
 export default function Greeting({ bundjalungGreeting = "JINGI WALLA", englishGreeting = "WELCOME" }) {
   const [isBundjalung, setIsBundjalung] = useState(true);
   const toggleGreeting = () => setIsBundjalung(prev => !prev);
 
   return (
-    <section className="flex flex-col justify-center items-center w-full min-h-[75vh] sm:min-h-screen px-4 mb-6 sm:mb-10">
+    <section className="flex flex-col justify-center items-center w-full min-h-[75vh] sm:min-h-screen px-4 mb-6 sm:mb-10 bg-cover bg-center"
+     style={{ backgroundImage: `url(${diversity})` }}>
       <AnimatePresence mode="wait">
         <motion.h1
           key={isBundjalung ? "bundjalung" : "english"}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 5 }}
-          className="text-center w-full font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-6"
+          className="text-center w-full font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl mb-6 text-white drop-shadow-lg"
         >
           {isBundjalung ? bundjalungGreeting : englishGreeting}
         </motion.h1>
