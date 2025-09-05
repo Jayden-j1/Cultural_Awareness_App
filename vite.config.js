@@ -7,4 +7,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react()],
+  base: '/Cultural_Awareness_App/'
 })
