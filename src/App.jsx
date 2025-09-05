@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import NavBar from './components/NavigationBar';
-import MainContent from './components/Main';
+import NavBar from './components/header/NavigationBar.jsx';
+import MainContent from './components/main/Main.jsx';
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
       />
       {/* Other app content can go here */}
 
-      <MainContent/>
+       <MainContent/>
 
       
     </>

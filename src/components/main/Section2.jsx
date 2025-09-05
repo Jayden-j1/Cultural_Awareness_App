@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation.js"
 import { useState } from "react";
+
 
 export default function Language({
   bundjalung = (
