@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import NavBar from './components/header/NavigationBar.jsx';
 import MainContent from './components/main/Main.jsx';
-
+import Footer from './components/footer/FooterContent.jsx';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,15 +19,18 @@ function App() {
 
   return (
     <>
+    {/* Navigation Menu Content */}
       <NavBar
         isOpen={isOpen}
         toggleMenu={toggleMenu}
         navigation={navigation}
       />
-      {/* Other app content can go here */}
 
+      {/* Main  Content */}
        <MainContent/>
 
+       {/* Footer Content */}
+      <Footer />
       
     </>
   );
